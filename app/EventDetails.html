@@ -39,9 +39,32 @@
 		</div>
 		<hr/>
 		<h3>Sessions</h3>
+			Order By:
+			<select ng-model="sortorder" class="input-small">
+				<option selected value="name">Name</option>
+				<option value="-upVoteCount">Votes</option>
+			</select>
+			Show:
+			<select ng-model="query.level" class="input-small">
+				<option selected value="">All</option>
+				<option selected value="introductory">Introductory</option>
+				<option selected value="intermediate">Intermediate</option>
+				<option selected value="advanced">Advanced</option>
+			</select>
 			<ul class="thumbnails">
-				<li ng-repeat="session in event.sessions">
+				<li ng-repeat="session in event.sessions | orderBy:sortorder | filter:query">
 					<div class="row session">
+						<div class="span0 well votingWidget">
+							<div class="votingButton" ng-click="upVoteSession(session)">
+								<i class="icon-chevron-up icon-black"></i>
+							</div>
+							<div class="badge badge-inverse" style="margin-left:-4px">
+								{{session.upVoteCount}}
+							</div>
+							<div class="votingButton" ng-click="downVoteSession(session)">
+								<i class="icon-chevron-down"></i>
+							</div>
+						</div>
 						<div class="well span9">
 							<h4 class="well-title">{{session.name}}</h4>
 							<h6 style="margin-top:-10px">{{session.creatorName}}</h6>
