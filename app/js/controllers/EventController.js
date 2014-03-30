@@ -11,7 +11,30 @@ eventsApp.controller('EventController', function EventController($scope) {
 			city: 'Mountain View',
 			province: 'CA'
 		},
-		imageUrl: '/img/angularjs-logo.png'
+		imageUrl: '/img/angularjs-logo.png',
+		sessions: [
+			{
+				name: 'Directive Masterclass',
+				creatorName: 'Bob smith',
+				duration: '1 hr',
+				level: 'Advanced',
+				abstract: 'In this session you will learn the ins and outs of directive!'
+			},
+			{
+				name: 'Scopes for fun and profit',
+				creatorName: 'jhon doe',
+				duration: '1 hr',
+				level: 'Biginner',
+				abstract: 'In this session you will learn the ins and outs of scopes!'
+			},
+			{
+				name: "well behaved controller",
+				creatorName: 'jan doe',
+				duration: '1 hr',
+				level: 'Intermediate',
+				abstract: 'In this session you will learn the ins and outs of controllers!'
+			}
+		]
 	}
 	
 });
