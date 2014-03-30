@@ -1,21 +1,22 @@
 /**
- * @license AngularJS v1.3.0-beta.2
+ * @license AngularJS v1.2.12
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular, undefined) {'use strict';
 
 /**
- * @ngdoc module
+ * @ngdoc overview
  * @name ngTouch
  * @description
  *
  * # ngTouch
  *
  * The `ngTouch` module provides touch events and other helpers for touch-enabled devices.
- * The implementation is based on jQuery Mobile touch event handling
+ * The implementation is based on jQuery Mobile touch event handling 
  * ([jquerymobile.com](http://jquerymobile.com/)).
  *
+ * {@installModule touch}
  *
  * See {@link ngTouch.$swipe `$swipe`} for usage.
  *
@@ -30,8 +31,8 @@ var ngTouch = angular.module('ngTouch', []);
 /* global ngTouch: false */
 
     /**
-     * @ngdoc service
-     * @name $swipe
+     * @ngdoc object
+     * @name ngTouch.$swipe
      *
      * @description
      * The `$swipe` service is a service that abstracts the messier details of hold-and-drag swipe
@@ -68,7 +69,8 @@ ngTouch.factory('$swipe', [function() {
   return {
     /**
      * @ngdoc method
-     * @name $swipe#bind
+     * @name ngTouch.$swipe#bind
+     * @methodOf ngTouch.$swipe
      *
      * @description
      * The main method of `$swipe`. It takes an element to be watched for swipe motions, and an
@@ -166,7 +168,7 @@ ngTouch.factory('$swipe', [function() {
 
 /**
  * @ngdoc directive
- * @name ngClick
+ * @name ngTouch.directive:ngClick
  *
  * @description
  * A more powerful replacement for the default ngClick designed to be used on touchscreen
@@ -187,14 +189,14 @@ ngTouch.factory('$swipe', [function() {
  * upon tap. (Event object is available as `$event`)
  *
  * @example
-    <example>
-      <file name="index.html">
+    <doc:example>
+      <doc:source>
         <button ng-click="count = count + 1" ng-init="count=0">
           Increment
         </button>
         count: {{ count }}
-      </file>
-    </example>
+      </doc:source>
+    </doc:example>
  */
 
 ngTouch.config(['$provide', function($provide) {
@@ -440,7 +442,7 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
 
 /**
  * @ngdoc directive
- * @name ngSwipeLeft
+ * @name ngTouch.directive:ngSwipeLeft
  *
  * @description
  * Specify custom behavior when an element is swiped to the left on a touchscreen device.
@@ -455,8 +457,8 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
  * upon left swipe. (Event object is available as `$event`)
  *
  * @example
-    <example>
-      <file name="index.html">
+    <doc:example>
+      <doc:source>
         <div ng-show="!showActions" ng-swipe-left="showActions = true">
           Some list content, like an email in the inbox
         </div>
@@ -464,13 +466,13 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
           <button ng-click="reply()">Reply</button>
           <button ng-click="delete()">Delete</button>
         </div>
-      </file>
-    </example>
+      </doc:source>
+    </doc:example>
  */
 
 /**
  * @ngdoc directive
- * @name ngSwipeRight
+ * @name ngTouch.directive:ngSwipeRight
  *
  * @description
  * Specify custom behavior when an element is swiped to the right on a touchscreen device.
@@ -485,8 +487,8 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
  * upon right swipe. (Event object is available as `$event`)
  *
  * @example
-    <example>
-      <file name="index.html">
+    <doc:example>
+      <doc:source>
         <div ng-show="!showActions" ng-swipe-left="showActions = true">
           Some list content, like an email in the inbox
         </div>
@@ -494,8 +496,8 @@ ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
           <button ng-click="reply()">Reply</button>
           <button ng-click="delete()">Delete</button>
         </div>
-      </file>
-    </example>
+      </doc:source>
+    </doc:example>
  */
 
 function makeSwipeDirective(directiveName, direction, eventName) {
