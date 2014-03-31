@@ -3,10 +3,16 @@
 eventsApp.controller('EventController', function EventController($scope, eventData) {
 
 	$scope.sortorder = 'name';
-	eventData.getEvent(function(event) {
-		$scope.event = event;
-	});
+	$scope.event = eventData.getEvent(); //$scope.event store the promise returned by deffered created in eventData service
+	console.log($scope.event);
 
+	//access the actual event object inside the controller as follows
+	$scope.event.then(function(event) {
+		console.log(event);
+	}, function(status) {	
+		console.log(status);
+	});
+	
 	$scope.upVoteSession = function (session) {
 		session.upVoteCount++;
 	};
