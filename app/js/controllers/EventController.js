@@ -1,18 +1,17 @@
 'use strict';
 
-eventsApp.controller('EventController', function EventController($scope, eventData) {
+eventsApp.controller('EventController',
+    function EventController($scope, eventData, $routeParams, $route) {
+        $scope.sortorder = 'name';
 
-	$scope.sortorder = 'name';
-	$scope.event = eventData.getEvent(); //$scope.event store the promise returned by deffered created in eventData service
-	//console.log($scope.event);
+        $scope.event = $route.current.locals.event;
 
-	//access the actual event object inside the controller as follows
+        $scope.upVoteSession = function (session) {
+            session.upVoteCount++;
+        };
 
-	$scope.upVoteSession = function (session) {
-		session.upVoteCount++;
-	};
-	
-	$scope.downVoteSession = function (session) {
-		session.upVoteCount--;
-	};
-});
+        $scope.downVoteSession = function (session) {
+            session.upVoteCount--;
+        };
+    }
+);
