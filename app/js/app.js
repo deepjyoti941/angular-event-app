@@ -27,5 +27,10 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
 			controller: 'SampleDirectiveController'
 		});
 
+		$routeProvider.when('/new-event', {
+			templateUrl: '/templates/NewEvent.html',
+			controller: 'EditEventController'
+		});
+
 		$locationProvider.html5Mode(true);  // for html 5 routing i.e removing # sign in routing
 	});

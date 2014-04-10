@@ -1,6 +1,6 @@
 'use strict';
 
-eventsApp.controller('EditEventController', function ($scope, eventData, $route) {
+eventsApp.controller('EditEventController', function ($scope, eventData) {
 
 	$scope.saveEvent = function (event, newEventForm) {
 		if (newEventForm.$valid) {
