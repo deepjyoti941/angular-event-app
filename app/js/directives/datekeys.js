@@ -6,10 +6,8 @@ eventsApp.directive('dateKeys', function() {
 		//here link is to bind the keydown event and cancel if any invalid keys are pressed
 		link: function($scope, element, attrs, controller) {
 			element.on('keydown', function(event) {
-				if(isNumericKeyCode(event.keyCode) || isForwardSlashKeyCode(event.keyCode) || isNavigationKeycode(event.keyCode)) {
-					return true;
-				}
-				return false;
+				return isNumericKeyCode(event.keyCode) || isForwardSlashKeyCode(event.keyCode) || isNavigationKeycode(event.keyCode);
+
 			});
 		}
 	}
