@@ -13,3 +13,8 @@ eventsApp.directive('upvote', function() {
 		}
 	}
 })
+
+/*
+Note: In isolate scope we have to use '&' i.e as myAttr: '&' inorder to bind a local scope property to a function we want 
+to execute in the parent scope
+*/
