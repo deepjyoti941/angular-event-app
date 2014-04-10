@@ -5,9 +5,9 @@ eventsApp.directive('greeting', function($compile) {
 		restrict: 'E',
 		replace: true,
 		template: "<button class='btn' ng-click='sayHello()'>Say hello</button>",
-		controller: 'GreetingController'
-
-	}
+		controller: '@',
+		name: 'ctrl'
+	};
 });
 
 eventsApp.controller('GreetingController', function($scope) {
